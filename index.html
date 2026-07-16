@@ -30,7 +30,6 @@
     .lc-step { flex: 1 1 0 !important; flex-direction: column !important; text-align: center !important; align-items: center !important; gap: 12px !important; padding: 4px 26px !important; }
     .lc-step + .lc-step { border-left: 1px solid rgba(255,255,255,0.14) !important; }
     .lc-step-txt { text-align: center !important; }
-    #lc-bodegones-grid { grid-template-columns: repeat(3, 1fr) !important; }
     #lc-footer-inner { max-width: 760px !important; }
     #lc-cta-btn { width: auto !important; min-width: 320px; }
   }
@@ -48,23 +47,8 @@
         <div style="display:inline-block; background:#FFE500; color:#E30613; font-weight:800; font-size:clamp(25px,8.4vw,58px); line-height:1; letter-spacing:0.01em; text-transform:uppercase; padding:9px 24px 11px; border-radius:12px; box-shadow:0 8px 26px rgba(0,0,0,0.4), inset 0 -3px 0 rgba(0,0,0,0.08);">Ahora cuesta menos</div>
       </div>
 
-      <div id="lc-slider" style="position:relative; max-width:660px; margin:16px auto 6px;" onTouchStart="{{ onTouchStart }}" onTouchEnd="{{ onTouchEnd }}">
-        <div style="overflow:hidden;">
-          <div style="display:flex; transition:transform .45s cubic-bezier(0.22,1,0.36,1); transform:translateX({{ trackX }});">
-            <sc-for list="{{ bodegones }}" as="b" hint-placeholder-count="3">
-              <div style="flex:0 0 100%; padding:0 4px;">
-                <img src="{{ b.img }}" alt="{{ b.name }}" style="width:100%; height:auto; display:block; filter:drop-shadow(0 22px 40px rgba(0,0,0,0.45));">
-              </div>
-            </sc-for>
-          </div>
-        </div>
-        <button type="button" aria-label="Anterior" onClick="{{ prev }}" style="position:absolute; top:46%; left:2px; transform:translateY(-50%); width:44px; height:44px; border-radius:999px; border:none; cursor:pointer; background:rgba(255,255,255,0.16); backdrop-filter:blur(6px); color:#fff; font-size:22px; font-weight:800; line-height:1; display:flex; align-items:center; justify-content:center;" style-hover="background:rgba(255,255,255,0.3);">❮</button>
-        <button type="button" aria-label="Siguiente" onClick="{{ next }}" style="position:absolute; top:46%; right:2px; transform:translateY(-50%); width:44px; height:44px; border-radius:999px; border:none; cursor:pointer; background:rgba(255,255,255,0.16); backdrop-filter:blur(6px); color:#fff; font-size:22px; font-weight:800; line-height:1; display:flex; align-items:center; justify-content:center;" style-hover="background:rgba(255,255,255,0.3);">❯</button>
-        <div style="display:flex; justify-content:center; gap:9px; margin-top:10px;">
-          <sc-for list="{{ dots }}" as="d" hint-placeholder-count="3">
-            <button type="button" aria-label="Ver bodegón" onClick="{{ d.go }}" style="width:{{ d.w }}; height:9px; border-radius:999px; border:none; cursor:pointer; padding:0; background:#fff; opacity:{{ d.op }}; transition:all .3s;"></button>
-          </sc-for>
-        </div>
+      <div style="max-width:660px; margin:16px auto 6px;">
+        <img src="uploads/bodegon3.png" alt="Productos Colon" style="width:100%; height:auto; display:block; filter:drop-shadow(0 22px 40px rgba(0,0,0,0.45));">
       </div>
 
       <div style="font-weight:800; font-size:clamp(24px,7.6vw,50px); line-height:1.05; text-shadow:0 2px 10px rgba(0,0,0,0.4); margin:10px auto 8px;">
@@ -101,21 +85,6 @@
     </div>
   </section>
 
-  <!-- ============ BODEGONES ============ -->
-  <section id="lc-bodegones" style="max-width:1180px; margin:0 auto; padding:30px 20px 10px; text-align:center;">
-    <h2 style="font-weight:800; font-size:clamp(20px,5.6vw,32px); text-transform:uppercase; letter-spacing:0.01em; margin:0 0 6px; text-shadow:0 2px 8px rgba(0,0,0,0.35);">Canjea tu cashback con estos productos</h2>
-    <p style="font-weight:400; font-size:15px; color:#cfe0ff; margin:0 auto 22px; max-width:46ch;">Elige el pack Colon con el que participas y consigue hasta 4€ de regalo.</p>
-    <div id="lc-bodegones-grid" style="display:grid; grid-template-columns:1fr; gap:16px;">
-      <sc-for list="{{ bodegones }}" as="b" hint-placeholder-count="3">
-        <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:18px; padding:16px 16px 18px; text-align:center;">
-          <img src="{{ b.img }}" alt="{{ b.name }}" style="width:100%; max-width:320px; height:auto; display:block; margin:0 auto 10px; filter:drop-shadow(0 14px 26px rgba(0,0,0,0.4));">
-          <div style="display:inline-block; background:#FFE500; color:#E30613; font-weight:800; font-size:15px; padding:5px 16px; border-radius:999px; margin-bottom:6px;">{{ b.badge }}</div>
-          <div style="font-weight:600; font-size:16px; color:#fff;">{{ b.name }}</div>
-        </div>
-      </sc-for>
-    </div>
-  </section>
-
   <!-- ============ FOOTER ============ -->
   <footer id="lc-footer" style="margin-top:30px; background:#041634; border-top:1px solid rgba(255,255,255,0.08);">
     <div id="lc-footer-inner" style="max-width:1180px; margin:0 auto; padding:24px 20px calc(130px + env(safe-area-inset-bottom)); display:flex; flex-direction:column; align-items:center; gap:16px;">
@@ -137,24 +106,9 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { slide: 0 };
-  bodegones = [
-    { img: 'uploads/PRODUCTOS-3E.png', name: 'Colon · Gel Activo', badge: '3€ de regalo' },
-    { img: 'uploads/bodegon2.png', name: 'Colon · Nenuco', badge: 'Hasta 4€ de regalo' },
-    { img: 'uploads/bodegon3.png', name: 'Colon · Flor', badge: 'Hasta 4€ de regalo' },
-  ];
-  go(i) { const n = this.bodegones.length; this.setState({ slide: ((i % n) + n) % n }); }
   renderVals() {
-    const s = this.state.slide;
     return {
-      bodegones: this.bodegones,
-      trackX: `-${s * 100}%`,
-      prev: () => this.go(s - 1),
-      next: () => this.go(s + 1),
-      dots: this.bodegones.map((b, i) => ({ w: i === s ? '26px' : '9px', op: i === s ? 1 : 0.4, go: () => this.go(i) })),
-      onTouchStart: (e) => { this._sx = e.touches[0].clientX; },
-      onTouchEnd: (e) => { if (this._sx == null) return; const dx = e.changedTouches[0].clientX - this._sx; if (dx < -40) this.go(s + 1); else if (dx > 40) this.go(s - 1); this._sx = null; },
-      onSubir: () => { window.open('https://participa.airwickcashback.com/formulario.aromasdelmundo?utm_source=App&utm_medium=AirWick&utm_campaign=aromasdelmundo_20260325_20261231', '_blank', 'noopener'); },
+      onSubir: () => { window.open('https://participa.samplia.com/lacoladaconcashback', '_blank', 'noopener'); },
     };
   }
 }

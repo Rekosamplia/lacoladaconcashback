@@ -29,6 +29,7 @@
     #lc-titular { padding-top: 6px !important; }
     #lc-hero-row { flex-direction: row !important; gap: 30px !important; }
     #lc-hero-claim { text-align: left !important; }
+    .lc-mob-br { display: none !important; }
     #lc-hero-right { align-items: flex-start !important; text-align: left !important; }
     #lc-steps, .lc-steps-sec { flex-direction: row !important; align-items: stretch !important; padding: 34px 20px !important; }
     #lc-steps-inner, .lc-steps-inner { flex-direction: row !important; align-items: stretch !important; width: 100% !important; }
@@ -55,7 +56,7 @@
       </div>
 
       <div id="lc-hero-row" style="display:flex; flex-direction:column; align-items:center; gap:18px; margin:18px auto 6px; max-width:1080px;">
-        <div id="lc-hero-claim" style="flex:1; font-weight:800; font-size:clamp(18px,4.8vw,26px); line-height:1.25; text-align:center; text-shadow:0 2px 8px rgba(0,0,0,0.4);">Consigue hasta <span style="color:#FFE500; font-size:2.4em; line-height:1; display:inline-block; vertical-align:-0.12em; text-shadow:0 2px 10px rgba(0,0,0,0.35);">4€</span><br>de regalo en productos seleccionados de Colon</div>
+        <div id="lc-hero-claim" style="flex:1; font-weight:800; font-size:clamp(18px,4.8vw,26px); line-height:1.25; text-align:center; text-shadow:0 2px 8px rgba(0,0,0,0.4);">Consigue hasta <span style="color:#FFE500; font-size:2.4em; line-height:1; display:inline-block; vertical-align:-0.12em; text-shadow:0 2px 10px rgba(0,0,0,0.35);">4€</span><br>de regalo en productos<br class="lc-mob-br">seleccionados de Colon</div>
         <div id="lc-hero-slider" style="flex:none; position:relative; width:min(70vw,340px); height:min(92vw,440px);">
           <div style="position:absolute; inset:0; overflow:hidden;">
             <sc-for list="{{ prodSlides }}" as="p" hint-placeholder-count="0">
@@ -71,15 +72,15 @@
         </div>
       </div>
 
-      <div style="font-weight:800; font-size:clamp(24px,7.6vw,50px); line-height:1.05; text-shadow:0 2px 10px rgba(0,0,0,0.4); margin:10px auto 8px;">
+      <div style="font-weight:800; font-size:clamp(24px,7.6vw,50px); line-height:1.05; text-shadow:0 2px 10px rgba(0,0,0,0.4); margin:36px auto 8px;">
         Recibe tu dinero en solo <span style="color:#FF2A1C; font-size:1.28em; text-shadow:0 0 16px rgba(255,60,40,0.5);">3</span> pasos
       </div>
     </div>
   </section>
 
   <!-- ============ STEPS ============ -->
-  <section id="lc-steps" style="max-width:1180px; margin:28px auto 8px; padding:20px 20px; display:flex; flex-direction:column; gap:20px; background:rgba(255,255,255,0.045); border:1px solid rgba(255,255,255,0.08); border-radius:20px;">
-    <div id="lc-steps-inner" style="display:flex; flex-direction:column; gap:34px; width:fit-content; max-width:100%; margin:0 auto;">
+  <section id="lc-steps" style="max-width:1180px; margin:28px auto 8px; padding:52px 20px; display:flex; flex-direction:column; gap:20px; background:rgba(255,255,255,0.045); border:1px solid rgba(255,255,255,0.08); border-radius:20px;">
+    <div id="lc-steps-inner" style="display:flex; flex-direction:column; gap:68px; width:fit-content; max-width:100%; margin:0 auto;">
     <div class="lc-step" style="display:flex; align-items:center; gap:16px;">
       <div style="flex:none; width:46px; height:46px; border-radius:999px; background:#E30613; color:#fff; font-weight:800; font-size:23px; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 16px rgba(227,6,19,0.4);">1</div>
       <img src="assets/step-1.svg" alt="" style="flex:none; display:block; width:58px; height:58px;">
@@ -123,8 +124,8 @@
   </div>
 
   <!-- ============ STEPS 2 ============ -->
-  <section class="lc-steps-sec" style="max-width:1180px; margin:36px auto 8px; padding:20px 20px; display:flex; flex-direction:column; gap:20px; background:rgba(255,255,255,0.045); border:1px solid rgba(255,255,255,0.08); border-radius:20px;">
-    <div class="lc-steps-inner" style="display:flex; flex-direction:column; gap:34px; width:fit-content; max-width:100%; margin:0 auto;">
+  <section class="lc-steps-sec" style="max-width:1180px; margin:36px auto 8px; padding:52px 20px; display:flex; flex-direction:column; gap:20px; background:rgba(255,255,255,0.045); border:1px solid rgba(255,255,255,0.08); border-radius:20px;">
+    <div class="lc-steps-inner" style="display:flex; flex-direction:column; gap:68px; width:fit-content; max-width:100%; margin:0 auto;">
     <div class="lc-step" style="display:flex; align-items:center; gap:16px;">
       <div style="flex:none; width:46px; height:46px; border-radius:999px; background:#E30613; color:#fff; font-weight:800; font-size:23px; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 16px rgba(227,6,19,0.4);">1</div>
       <img src="assets/step-1.svg" alt="" style="flex:none; display:block; width:58px; height:58px;">

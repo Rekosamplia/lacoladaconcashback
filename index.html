@@ -21,6 +21,7 @@
   a { color: #cfe0ff; text-decoration: none; }
   a:hover { color: #ffffff; }
   @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+  .lc-desk-br { display: none; }
   .lc-icon { -webkit-mask-position: center; mask-position: center; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-size: contain; mask-size: contain; }
   /* ---- Desktop enhancements ---- */
   @media (min-width: 860px) {
@@ -28,9 +29,10 @@
     #colon-logo { position: absolute !important; top: 24px !important; left: 28px !important; width: 230px !important; margin: 0 !important; z-index: 4; }
     #lc-titular { padding-top: 6px !important; }
     #lc-hero-row { flex-direction: row !important; gap: 30px !important; }
-    #lc-hero-claim { text-align: left !important; }
+    #lc-hero-claim { text-align: center !important; }
     .lc-mob-br { display: none !important; }
-    #lc-hero-right { align-items: flex-start !important; text-align: left !important; }
+    .lc-desk-br { display: inline !important; }
+    #lc-hero-right { align-items: center !important; text-align: center !important; }
     #lc-steps, .lc-steps-sec { flex-direction: row !important; align-items: stretch !important; padding: 34px 20px !important; }
     #lc-steps-inner, .lc-steps-inner { flex-direction: row !important; align-items: stretch !important; width: 100% !important; }
     #lc-productos-grid { grid-template-columns: repeat(8, 1fr) !important; gap: 22px 18px !important; }
@@ -56,7 +58,7 @@
       </div>
 
       <div id="lc-hero-row" style="display:flex; flex-direction:column; align-items:center; gap:18px; margin:18px auto 6px; max-width:1080px;">
-        <div id="lc-hero-claim" style="flex:1; font-weight:800; font-size:clamp(18px,4.8vw,26px); line-height:1.25; text-align:center; text-shadow:0 2px 8px rgba(0,0,0,0.4);">Consigue hasta <span style="color:#FFE500; font-size:2.4em; line-height:1; display:inline-block; vertical-align:-0.12em; text-shadow:0 2px 10px rgba(0,0,0,0.35);">4€</span> de regalo<br>en productos seleccionados de Colon</div>
+        <div id="lc-hero-claim" style="flex:1; font-weight:800; font-size:clamp(18px,4.8vw,26px); line-height:1.25; text-align:center; text-shadow:0 2px 8px rgba(0,0,0,0.4);">Consigue<br class="lc-mob-br"> hasta <br class="lc-desk-br"><span style="color:#E30613; -webkit-text-stroke:4px #fff; paint-order:stroke fill; font-size:2.4em; line-height:1; display:inline-block; vertical-align:-0.12em;">4€</span> de regalo</div>
         <div id="lc-hero-slider" style="flex:none; position:relative; width:min(70vw,340px); height:min(92vw,440px);">
           <div style="position:absolute; inset:0; overflow:hidden;">
             <sc-for list="{{ prodSlides }}" as="p" hint-placeholder-count="0">
@@ -73,7 +75,7 @@
       </div>
 
       <div style="font-weight:800; font-size:clamp(24px,7.6vw,50px); line-height:1.05; text-shadow:0 2px 10px rgba(0,0,0,0.4); margin:36px auto 8px;">
-        Recibe tu dinero<br class="lc-mob-br">en solo <span style="color:#FF2A1C; font-size:1.28em; text-shadow:0 0 16px rgba(255,60,40,0.5);">3</span> pasos
+        Recibe tu dinero <br class="lc-mob-br">en solo <span style="color:#fff; font-size:1.28em; text-shadow:0 2px 10px rgba(0,0,0,0.4);">3</span> pasos
       </div>
     </div>
   </section>
@@ -110,7 +112,7 @@
 
   <!-- ============ PRODUCTOS ============ -->
   <section id="lc-productos" style="max-width:1180px; margin:72px auto 8px; padding:10px 20px; text-align:center;">
-    <h2 style="font-weight:800; font-size:clamp(19px,5.2vw,34px); line-height:1.15; margin:0 auto 72px; text-shadow:0 2px 10px rgba(0,0,0,0.4);">Estos son todos los productos en la promoción.<br>Busca el tuyo y recibe hasta <span style="color:#FF2A1C;">4€</span> de regalo</h2>
+    <h2 style="font-weight:800; font-size:clamp(19px,5.2vw,34px); line-height:1.15; margin:0 auto 72px; text-shadow:0 2px 10px rgba(0,0,0,0.4);">Busca el tuyo y recibe <br class="lc-mob-br">hasta <span style="color:#E30613; -webkit-text-stroke:4px #fff; paint-order:stroke fill;">4€</span> de regalo</h2>
     <div id="lc-productos-grid" style="display:grid; grid-template-columns:repeat(2,1fr); gap:18px 14px; align-items:end;">
       <sc-for list="{{ productos }}" as="p" hint-placeholder-count="10">
         <img src="{{ p.img }}" alt="{{ p.name }}" style="width:100%; height:auto; display:block; filter:drop-shadow(0 16px 28px rgba(0,0,0,0.45));">
@@ -120,7 +122,7 @@
 
   <!-- ============ TITULAR PASOS 2 ============ -->
   <div style="font-weight:800; font-size:clamp(24px,7.6vw,50px); line-height:1.05; text-align:center; text-shadow:0 2px 10px rgba(0,0,0,0.4); margin:72px auto 8px; padding:0 20px;">
-    Recibe tu dinero<br class="lc-mob-br">en solo <span style="color:#FF2A1C; font-size:1.28em; text-shadow:0 0 16px rgba(255,60,40,0.5);">3</span> pasos
+    Recibe tu dinero <br class="lc-mob-br">en solo <span style="color:#fff; font-size:1.28em; text-shadow:0 2px 10px rgba(0,0,0,0.4);">3</span> pasos
   </div>
 
   <!-- ============ STEPS 2 ============ -->
